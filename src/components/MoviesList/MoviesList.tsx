@@ -2,11 +2,11 @@ import { useDispatch } from "react-redux";
 
 import { useAppSelector } from "../../store/hooks";
 import { useEffect } from "react";
-import UseMoviesApi from "../../hooks/moviesActions";
+import useMoviesApi from "../../hooks/moviesActions";
 import { loadMoviesActionCreator } from "../../store/feature/movies/moviesSlice";
 
 const MoviesList = (): React.ReactElement => {
-  const { getMoviesApi } = UseMoviesApi();
+  const { getMoviesApi } = useMoviesApi();
 
   const movies = useAppSelector((state) => state.movies.movies);
 
