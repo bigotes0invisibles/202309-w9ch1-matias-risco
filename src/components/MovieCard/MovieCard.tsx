@@ -12,8 +12,8 @@ const MovieCard = ({
       <h2>{name}</h2>
       <ul>
         genres:
-        {genres.map((genre) => (
-          <li>{genre}</li>
+        {genres.map((genre, position) => (
+          <li key={position}>{genre}</li>
         ))}
       </ul>
       <p>Protagonist: {mainProtagonist}</p>
