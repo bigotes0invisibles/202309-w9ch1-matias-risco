@@ -6,7 +6,7 @@ const MovieCardStyled = styled.div`
   gap: 10px;
   border-radius: 30px;
   padding: 20px;
-  background-color: aliceblue;
+  background-color: ${({ theme }) => theme.color.cardContainer};
 `;
 
 export default MovieCardStyled;
