@@ -5,15 +5,15 @@ interface MovieCardPropsStructure {
 }
 
 const MovieCard = ({
-  movie: { name, genres, mainProtagonist, duration, id },
+  movie: { name, genres, mainProtagonist, duration },
 }: MovieCardPropsStructure): React.ReactElement => {
   return (
     <div>
       <h2>{name}</h2>
       <ul>
         genres:
-        {genres.map((genre, position) => (
-          <li key={`${position}A${id}`}>{genre}</li>
+        {genres.map((genre) => (
+          <li>{genre}</li>
         ))}
       </ul>
       <p>Protagonist: {mainProtagonist}</p>
