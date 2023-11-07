@@ -17,7 +17,7 @@ const InitialMoviesState: moviesStateStructure = {
   movies: [],
 };
 
-const movies = createSlice({
+const moviesSlice = createSlice({
   name: "movies",
   initialState: InitialMoviesState,
   reducers: {
@@ -28,5 +28,5 @@ const movies = createSlice({
   },
 });
 
-export default movies;
-export const { loadMovies } = movies.actions;
+export default moviesSlice.reducer;
+export const { loadMovies } = moviesSlice.actions;
