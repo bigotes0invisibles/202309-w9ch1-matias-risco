@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks";
 import { loadMoviesActionCreator } from "../../store/feature/movies/moviesSlice";
 import useMoviesApi from "../../hooks/moviesActions";
-import MovieCard from "../MoviesCard/MoviesCard";
+import MovieCard from "../MovieCard/MovieCard";
 
 const MoviesList = (): React.ReactElement => {
   const { getMoviesApi } = useMoviesApi();

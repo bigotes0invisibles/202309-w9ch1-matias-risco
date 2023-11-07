@@ -1,4 +1,5 @@
 import { MoviesStructure } from "../../store/feature/movies/types";
+import MovieCardStyled from "./MovieCardStyled";
 
 interface MovieCardPropsStructure {
   movie: MoviesStructure;
@@ -8,7 +9,7 @@ const MovieCard = ({
   movie: { name, genres, mainProtagonist, duration },
 }: MovieCardPropsStructure): React.ReactElement => {
   return (
-    <div>
+    <MovieCardStyled>
       <h2>{name}</h2>
       <ul>
         genres:
@@ -18,7 +19,7 @@ const MovieCard = ({
       </ul>
       <p>Protagonist: {mainProtagonist}</p>
       <p>Duracion: {duration}</p>
-    </div>
+    </MovieCardStyled>
   );
 };
 
