@@ -21,7 +21,7 @@ const MoviesList = (): React.ReactElement => {
   return (
     <ul>
       {movies.map((movie) => (
-        <li>
+        <li key={movie.id}>
           <h2>{movie.name}</h2>
           <span>{movie.genre}</span>
         </li>
