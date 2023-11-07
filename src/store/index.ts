@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-
+import movies from "./feature/flims/flimsSlice";
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    movies: movies.reducer,
+  },
 });
 
 export type AppDispatch = typeof store.dispatch;
