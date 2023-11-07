@@ -3,12 +3,10 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks";
 import { loadMoviesActionCreator } from "../../store/feature/movies/moviesSlice";
 import useMoviesApi from "../../hooks/moviesActions";
+import MovieCard from "../Card/Card";
 
 const MoviesList = (): React.ReactElement => {
   const { getMoviesApi } = useMoviesApi();
-
-  const movies = useAppSelector((state) => state.movies.movies);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,12 +16,13 @@ const MoviesList = (): React.ReactElement => {
     })();
   }, [dispatch, getMoviesApi]);
 
+  const movies = useAppSelector((state) => state.moviesState.movies);
+
   return (
     <ul>
       {movies.map((movie) => (
         <li key={movie.id}>
-          <h2>{movie.name}</h2>
-          <span>{movie.genre}</span>
+          <MovieCard movie={movie} />
         </li>
       ))}
     </ul>
