@@ -6,7 +6,7 @@ const initialMoviesState: MoviesStateStructure = {
 };
 
 const moviesSlice = createSlice({
-  name: "movies",
+  name: "moviesState",
   initialState: initialMoviesState,
   reducers: {
     loadMovies: (
