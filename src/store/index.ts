@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
-import movies from "./feature/flims/flimsSlice";
+import movies from "./feature/movies/moviesSlice";
 export const store = configureStore({
   reducer: {
     movies: movies.reducer,
