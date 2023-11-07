@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks";
 import { useEffect } from "react";
 import UseMoviesApi from "../../hooks/moviesActions";
-import { loadMovies } from "../../store/feature/movies/moviesSlice";
+import { loadMoviesActionCreator } from "../../store/feature/movies/moviesSlice";
 
 const MoviesList = (): React.ReactElement => {
   const { getMoviesApi } = UseMoviesApi();
@@ -15,7 +15,7 @@ const MoviesList = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       const currentmovies = await getMoviesApi();
-      dispatch(loadMovies(currentmovies));
+      dispatch(loadMoviesActionCreator(currentmovies));
     })();
   }, [dispatch, getMoviesApi]);
 
