@@ -5,7 +5,7 @@ export interface moviesStructure {
   name: string;
   meme: "yes" | "no" | "maybe" | "yesn't";
   mainProtagonist: string;
-  genre: string;
+  genre: string[];
   duration: string;
 }
 
@@ -29,3 +29,4 @@ const movies = createSlice({
 });
 
 export default movies;
+export const { loadMovies } = movies.actions;
