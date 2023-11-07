@@ -1,32 +1,23 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { MoviesStateStructure, MoviesStructure } from "./types";
 
-export interface moviesStructure {
-  id: number;
-  name: string;
-  meme: "yes" | "no" | "maybe" | "yesn't";
-  mainProtagonist: string;
-  genre: string[];
-  duration: string;
-}
-
-interface moviesStateStructure {
-  movies: moviesStructure[];
-}
-
-const InitialMoviesState: moviesStateStructure = {
+const initialMoviesState: MoviesStateStructure = {
   movies: [],
 };
 
-const movies = createSlice({
+const moviesSlice = createSlice({
   name: "movies",
-  initialState: InitialMoviesState,
+  initialState: initialMoviesState,
   reducers: {
-    loadMovies: (currentState, action: PayloadAction<moviesStructure[]>) => ({
+    loadMovies: (
+      currentState,
+      action: PayloadAction<MoviesStructure[]>,
+    ): MoviesStateStructure => ({
       ...currentState,
       movies: action.payload,
     }),
   },
 });
 
-export default movies;
-export const { loadMovies } = movies.actions;
+export default moviesSlice.reducer;
+export const { loadMovies: loadMoviesActionCreator } = moviesSlice.actions;
