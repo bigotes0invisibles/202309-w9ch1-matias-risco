@@ -3,7 +3,7 @@ export interface MoviesStructure {
   name: string;
   meme: "yes" | "no" | "maybe" | "yesn't";
   mainProtagonist: string;
-  genre: string[];
+  genres: Array<string>;
   duration: string;
 }
 
