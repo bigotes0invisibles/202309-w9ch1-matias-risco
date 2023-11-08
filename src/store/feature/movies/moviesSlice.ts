@@ -14,7 +14,10 @@ const moviesSlice = createSlice({
       action: PayloadAction<MoviesStructure[]>,
     ): MoviesStateStructure => ({
       ...currentState,
-      movies: action.payload,
+      movies: action.payload.map((movie) => ({
+        ...movie,
+        genres: [...movie.genres],
+      })),
     }),
   },
 });

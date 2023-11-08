@@ -5,6 +5,7 @@ export interface MoviesStructure {
   mainProtagonist: string;
   genres: Array<string>;
   duration: string;
+  image: string;
 }
 
 export interface MoviesStateStructure {
