@@ -6,6 +6,7 @@ export interface MoviesStructure {
   genres: Array<string>;
   duration: string;
   image: string;
+  watched: boolean;
 }
 
 export interface MoviesStateStructure {

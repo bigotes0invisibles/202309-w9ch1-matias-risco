@@ -8,6 +8,7 @@ const mockMovies: MoviesStructure[] = [
     genres: ["Fantasy", "Action", "Superhero"],
     mainProtagonist: "Miles Morales",
     meme: "yesn't",
+    watched: false,
     image:
       "https://images.mubicdn.net/images/film/252425/cache-880577-1691758931/image-w1280.jpg?size=400x",
   },
@@ -18,6 +19,7 @@ const mockMovies: MoviesStructure[] = [
     duration: "2:49:00",
     genres: ["Drama", "Ciencia ficción"],
     mainProtagonist: "Joseph Cooper.",
+    watched: false,
     image:
       "https://i.blogs.es/25fad9/714563181_preview_interstellar_voyage-3840x2160/450_1000.jpg",
   },
