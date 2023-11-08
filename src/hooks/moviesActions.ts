@@ -11,7 +11,30 @@ const useMoviesApi = () => {
     return movies;
   }, [apiurl]);
 
-  return { getMoviesApi };
+  const toggleWatchMovieApi = useCallback(
+    async (movie: MoviesStructure): Promise<boolean> => {
+      try {
+        const response = await fetch(`${apiurl}/movies/${movie.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            watched: !movie.watched,
+          }),
+        });
+
+        if (!response.ok) return false;
+        return true;
+      } catch (error) {
+        console.log((error as Error).message);
+        return false;
+      }
+    },
+    [apiurl],
+  );
+
+  return { getMoviesApi, toggleWatchMovieApi };
 };
 
 export default useMoviesApi;
