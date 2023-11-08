@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle`
 
 h1,
 h2{
-
   margin: 0;
   padding: 0;
 }
@@ -25,7 +24,7 @@ body{
   font-family:${({ theme }) => theme.typography.mainFontFamily};
   color:  ${({ theme }) => theme.color.mainFont};
   background-color: ${({ theme }) => theme.color.backgroud};
-  };
+}
 
 `;
 
