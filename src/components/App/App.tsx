@@ -1,7 +1,7 @@
-import Header from "../Header/Header";
-import MoviesList from "../MoviesList/MoviesList";
-import AppStyled from "./AppStyled";
 import { Navigate, Route, Routes } from "react-router-dom";
+import HomePage from "../../pages/HomePage/HomePage";
+import Header from "../Header/Header";
+import AppStyled from "./AppStyled";
 
 const App = (): React.ReactElement => {
   return (
@@ -10,7 +10,7 @@ const App = (): React.ReactElement => {
       <main>
         <Routes>
           <Route path="/" element={<Navigate to="/home" />} />
-          <Route path="/home" element={<MoviesList />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </main>
     </AppStyled>

@@ -21,6 +21,7 @@ ul{
 }
 
 body{
+  padding: 0;
   font-family:${({ theme }) => theme.typography.mainFontFamily};
   color:  ${({ theme }) => theme.color.mainFont};
   background-color: ${({ theme }) => theme.color.backgroud};
