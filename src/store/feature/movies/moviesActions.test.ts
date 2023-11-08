@@ -5,7 +5,7 @@ import { MoviesStateStructure } from "./types";
 
 describe("Given the reducer of movies", () => {
   describe("When the reducer recive the action toggleWatchMovie with the payload of the id of the fristmovie", () => {
-    test.only("it should change firts movie watch propety", () => {
+    test("it should change firts movie watch propety", () => {
       const currentState: MoviesStateStructure = { movies: mockMovies };
       const expectState: MoviesStateStructure = JSON.parse(
         JSON.stringify(currentState),
