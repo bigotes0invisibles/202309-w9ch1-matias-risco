@@ -28,11 +28,20 @@ const MovieCardStyled = styled.div`
       flex-wrap: wrap;
       gap: 8px;
     }
+
     &__image {
       width: calc(100vw - 80px);
       max-width: 300px;
       height: 150px;
       object-fit: cover;
+    }
+
+    &__checkbox {
+      padding: 5px;
+      width: 30px;
+      height: 30px;
+      align-self: center;
+      filter: invert(100%);
     }
   }
 `;
