@@ -25,6 +25,11 @@ const moviesSlice = createSlice({
         watched: movie.id === action.payload ? !movie.watched : movie.watched,
       })),
     }),
+
+    addMovie: (currentState, action: PayloadAction<MoviesStructure>) => ({
+      ...currentState,
+      movies: [...copyMovies(currentState.movies), copyMovie(action.payload)],
+    }),
   },
 });
 
@@ -32,4 +37,5 @@ export default moviesSlice.reducer;
 export const {
   loadMovies: loadMoviesActionCreator,
   toggleWatchMovie: toggleWatchMovieActionCreator,
+  addMovie: AddMovieActionCreator,
 } = moviesSlice.actions;
