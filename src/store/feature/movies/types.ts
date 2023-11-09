@@ -1,5 +1,4 @@
-export interface MoviesStructure {
-  id: number;
+export interface MoviesStructureBase {
   name: string;
   meme: "yes" | "no" | "maybe" | "yesn't";
   mainProtagonist: string;
@@ -7,6 +6,14 @@ export interface MoviesStructure {
   duration: string;
   image: string;
   watched: boolean;
+}
+
+export interface MoviesStructure extends MoviesStructureBase {
+  id: number;
+}
+
+export interface MoviesStructureIdOptional extends MoviesStructureBase {
+  id?: number;
 }
 
 export interface MoviesStateStructure {
