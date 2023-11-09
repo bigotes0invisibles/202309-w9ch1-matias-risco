@@ -1,18 +1,22 @@
 import { useCallback } from "react";
-import { MoviesStructure } from "../store/feature/movies/types";
+import {
+  MovieStructure,
+  MovieStructureIdOptional,
+} from "../store/feature/movies/types";
+import { copyMovie } from "../store/feature/movies/movieUtils";
 
 const useMoviesApi = () => {
   const apiurl = import.meta.env.VITE_URL_API;
 
   const getMoviesApi = useCallback(async () => {
     const response = await fetch(`${apiurl}/movies`);
-    const movies = (await response.json()) as MoviesStructure[];
+    const movies = (await response.json()) as MovieStructure[];
 
     return movies;
   }, [apiurl]);
 
   const toggleWatchMovieApi = useCallback(
-    async (movie: MoviesStructure): Promise<boolean> => {
+    async (movie: MovieStructure): Promise<boolean> => {
       try {
         const response = await fetch(`${apiurl}/movies/${movie.id}`, {
           method: "PATCH",
@@ -34,7 +38,29 @@ const useMoviesApi = () => {
     [apiurl],
   );
 
-  return { getMoviesApi, toggleWatchMovieApi };
+  const addMovieApi = useCallback(
+    async (movie: MovieStructure) => {
+      const movieWithOutId: MovieStructureIdOptional = copyMovie(movie);
+      delete movieWithOutId.id;
+      try {
+        const response = await fetch(`${apiurl}/movies`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(movieWithOutId),
+        });
+        const newMovie = (await response.json()) as MovieStructure;
+        return newMovie;
+      } catch (error) {
+        console.log((error as Error).message);
+        return {} as MovieStructure;
+      }
+    },
+    [apiurl],
+  );
+
+  return { getMoviesApi, toggleWatchMovieApi, AddMovieApi: addMovieApi };
 };
 
 export default useMoviesApi;

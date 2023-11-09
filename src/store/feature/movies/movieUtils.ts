@@ -1,11 +1,11 @@
-import { MoviesStateStructure, MoviesStructure } from "./types";
+import { MoviesStateStructure, MovieStructure } from "./types";
 
-export const copyMovie = (movie: MoviesStructure): MoviesStructure => ({
+export const copyMovie = (movie: MovieStructure): MovieStructure => ({
   ...movie,
   genres: [...movie.genres],
 });
 
-export const copyMovies = (movies: MoviesStructure[]): MoviesStructure[] =>
+export const copyMovies = (movies: MovieStructure[]): MovieStructure[] =>
   movies.map((movie) => copyMovie(movie));
 
 export const copyMovieState = (

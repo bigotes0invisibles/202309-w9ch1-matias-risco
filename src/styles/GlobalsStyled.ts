@@ -20,6 +20,7 @@ ul{
 }
 
 body{
+  margin: 0;
   padding: 0;
   font-family:${({ theme }) => theme.typography.mainFontFamily};
   color:  ${({ theme }) => theme.color.mainFont};
