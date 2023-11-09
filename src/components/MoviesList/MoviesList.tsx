@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAppSelector } from "../../store/hooks";
 import { loadMoviesActionCreator } from "../../store/feature/movies/moviesSlice";
-import useMoviesApi from "../../hooks/moviesActions";
+import useMoviesApi from "../../hooks/useMoviesApi";
 import MovieCard from "../MovieCard/MovieCard";
 import MoviesListStyled from "./MoviesListStyled";
 
