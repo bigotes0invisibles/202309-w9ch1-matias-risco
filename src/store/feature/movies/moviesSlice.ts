@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { MoviesStateStructure, MoviesStructure } from "./types";
+import { MoviesStateStructure, MovieStructure } from "./types";
 import { copyMovie, copyMovies } from "./movieUtils";
 
 const initialMoviesState: MoviesStateStructure = {
@@ -12,7 +12,7 @@ const moviesSlice = createSlice({
   reducers: {
     loadMovies: (
       currentState,
-      action: PayloadAction<MoviesStructure[]>,
+      action: PayloadAction<MovieStructure[]>,
     ): MoviesStateStructure => ({
       ...currentState,
       movies: copyMovies(action.payload),
@@ -26,7 +26,7 @@ const moviesSlice = createSlice({
       })),
     }),
 
-    addMovie: (currentState, action: PayloadAction<MoviesStructure>) => ({
+    addMovie: (currentState, action: PayloadAction<MovieStructure>) => ({
       ...currentState,
       movies: [...copyMovies(currentState.movies), copyMovie(action.payload)],
     }),

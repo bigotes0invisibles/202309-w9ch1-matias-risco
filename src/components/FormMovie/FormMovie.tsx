@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { MoviesStructure } from "../../store/feature/movies/types";
+import { MovieStructure } from "../../store/feature/movies/types";
 import FormMovieStyled from "./FormMovieStyled";
 
 interface FormMoviePropsStructure {
-  onSumbit: (movie: MoviesStructure) => void;
+  onSumbit: (movie: MovieStructure) => void;
 }
 
 const FormMovie = ({
   onSumbit,
 }: FormMoviePropsStructure): React.ReactElement => {
-  const [newMovie, setNewMovie] = useState<MoviesStructure>({
+  const [newMovie, setNewMovie] = useState<MovieStructure>({
     duration: "",
     genres: [""],
     id: 0,

@@ -5,7 +5,7 @@ import {
   toggleWatchMovieActionCreator,
 } from "./moviesSlice";
 import moviesReducer from "./moviesSlice";
-import { MoviesStateStructure, MoviesStructure } from "./types";
+import { MoviesStateStructure, MovieStructure } from "./types";
 
 describe("Given the reducer of movies", () => {
   describe("When the reducer recive ActualState and the action toggleWatchMovie with the payload of the id of the fristmovie", () => {
@@ -29,7 +29,7 @@ describe("Given the reducer of movies", () => {
       const currentState: MoviesStateStructure = {
         movies: copyMovies(mockMovies),
       };
-      const newMovie: MoviesStructure = {
+      const newMovie: MovieStructure = {
         id: 6,
         duration: "",
         genres: [],

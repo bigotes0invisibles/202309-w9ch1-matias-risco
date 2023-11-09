@@ -1,6 +1,6 @@
-import { MoviesStructure } from "../store/feature/movies/types";
+import { MovieStructure } from "../store/feature/movies/types";
 
-const mockMovies: MoviesStructure[] = [
+const mockMovies: MovieStructure[] = [
   {
     id: 1,
     name: "spider man into the spider verse",

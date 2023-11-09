@@ -2,9 +2,9 @@ import "@testing-library/jest-dom";
 import { server } from "./mocks/main";
 
 import mockMovies from "./mocks/mockData";
-import { MoviesStructure } from "./store/feature/movies/types";
+import { MovieStructure } from "./store/feature/movies/types";
 
-export let moviesApi: MoviesStructure[] = mockMovies;
+export let moviesApi: MovieStructure[] = mockMovies;
 
 beforeAll(() => {
   moviesApi = mockMovies;

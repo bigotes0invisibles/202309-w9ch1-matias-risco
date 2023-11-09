@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
-import { MoviesStructure } from "../../store/feature/movies/types";
+import { MovieStructure } from "../../store/feature/movies/types";
 import MovieCardStyled from "./MovieCardStyled";
 import { toggleWatchMovieActionCreator } from "../../store/feature/movies/moviesSlice";
 import { useCallback } from "react";
 import useMoviesApi from "../../hooks/useMoviesApi";
 
 interface MovieCardPropsStructure {
-  movie: MoviesStructure;
+  movie: MovieStructure;
 }
 
 const MovieCard = ({

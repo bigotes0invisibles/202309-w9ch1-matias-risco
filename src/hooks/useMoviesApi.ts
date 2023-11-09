@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import {
-  MoviesStructure,
-  MoviesStructureIdOptional,
+  MovieStructure,
+  MovieStructureIdOptional,
 } from "../store/feature/movies/types";
 import { copyMovie } from "../store/feature/movies/movieUtils";
 
@@ -10,13 +10,13 @@ const useMoviesApi = () => {
 
   const getMoviesApi = useCallback(async () => {
     const response = await fetch(`${apiurl}/movies`);
-    const movies = (await response.json()) as MoviesStructure[];
+    const movies = (await response.json()) as MovieStructure[];
 
     return movies;
   }, [apiurl]);
 
   const toggleWatchMovieApi = useCallback(
-    async (movie: MoviesStructure): Promise<boolean> => {
+    async (movie: MovieStructure): Promise<boolean> => {
       try {
         const response = await fetch(`${apiurl}/movies/${movie.id}`, {
           method: "PATCH",
@@ -39,8 +39,8 @@ const useMoviesApi = () => {
   );
 
   const addMovieApi = useCallback(
-    async (movie: MoviesStructure) => {
-      const movieWithOutId: MoviesStructureIdOptional = copyMovie(movie);
+    async (movie: MovieStructure) => {
+      const movieWithOutId: MovieStructureIdOptional = copyMovie(movie);
       delete movieWithOutId.id;
       try {
         const response = await fetch(`${apiurl}/movies`, {
@@ -50,11 +50,11 @@ const useMoviesApi = () => {
           },
           body: JSON.stringify(movieWithOutId),
         });
-        const newMovie = (await response.json()) as MoviesStructure;
+        const newMovie = (await response.json()) as MovieStructure;
         return newMovie;
       } catch (error) {
         console.log((error as Error).message);
-        return {} as MoviesStructure;
+        return {} as MovieStructure;
       }
     },
     [apiurl],
