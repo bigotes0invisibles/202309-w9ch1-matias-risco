@@ -19,6 +19,13 @@ ul{
   list-style: none;
 }
 
+a{
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 body{
   margin: 0;
   padding: 0;
