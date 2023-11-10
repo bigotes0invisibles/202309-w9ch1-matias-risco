@@ -2,6 +2,10 @@ import { renderHook } from "@testing-library/react";
 import mockMovies from "../mocks/mockData";
 import useMoviesApi from "./useMoviesApi";
 import { copyMovies } from "../store/feature/movies/movieUtils";
+import {
+  MovieStructure,
+  MovieStructureIdOptional,
+} from "../store/feature/movies/types";
 
 describe("Given the hook useMoviesApi", () => {
   describe("When getMoviesApi is call", () => {
@@ -37,6 +41,34 @@ describe("Given the hook useMoviesApi", () => {
 
       expect(movieInterstellar.watched).not.toBe(
         movieInterstellarUpdated.watched,
+      );
+    });
+  });
+
+  describe("When addMovieApi is call with a new movie as a parameter", () => {
+    test("it should add the new movie to movies in the Api", async () => {
+      const {
+        result: {
+          current: { AddMovieApi, getMoviesApi },
+        },
+      } = renderHook(useMoviesApi);
+      const newMovie: MovieStructureIdOptional = {
+        duration: "",
+        genres: [],
+        id: 90,
+        image: "",
+        name: "testApi",
+        mainProtagonist: "",
+        meme: "maybe",
+        watched: true,
+      };
+
+      await AddMovieApi(newMovie as MovieStructure);
+      const moviesApi = await getMoviesApi();
+      delete newMovie.id;
+
+      expect(moviesApi).toEqual(
+        expect.arrayContaining([expect.objectContaining(newMovie)]),
       );
     });
   });
