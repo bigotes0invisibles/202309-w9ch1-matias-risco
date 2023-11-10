@@ -4,6 +4,7 @@ import MovieCardStyled from "./MovieCardStyled";
 import { toggleWatchMovieActionCreator } from "../../store/feature/movies/moviesSlice";
 import { useCallback } from "react";
 import useMoviesApi from "../../hooks/useMoviesApi";
+import Button from "../Button/Button";
 
 interface MovieCardPropsStructure {
   movie: MovieStructure;
@@ -35,15 +36,14 @@ const MovieCard = ({
           </ul>
           <span>Protagonist: {mainProtagonist}</span>
           <span>Duracion: {duration}</span>
-          <label>
-            Wached:
-            <input
-              type="checkbox"
-              className="movie-card__checkbox"
-              checked={watched}
-              onChange={onchange}
-            />
-          </label>
+          <span>
+            this movie is mark as <br />
+            {watched ? "watched" : "not watched"}
+          </span>
+          <Button
+            onClick={onchange}
+            textContent={watched ? "unWatch" : "Watch"}
+          />
         </div>
         <img
           src={image}
