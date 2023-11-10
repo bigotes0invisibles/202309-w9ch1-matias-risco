@@ -4,6 +4,7 @@ import { MovieStructure } from "../../store/feature/movies/types";
 import { AddMovieActionCreator } from "../../store/feature/movies/moviesSlice";
 import useMoviesApi from "../../hooks/useMoviesApi";
 import { useNavigate } from "react-router-dom";
+import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 const AddMoviePage = (): React.ReactElement => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const AddMoviePage = (): React.ReactElement => {
   };
   return (
     <>
+      <NavigationBar />
       <h2>Add new movie</h2>
       <FormMovie onSumbit={onSumbit} />
     </>
